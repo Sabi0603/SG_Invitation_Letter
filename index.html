@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Interview Letter</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script> 
+</head>
+
+<body>
+
+    <div class="form-box">
+        <select id="gender">
+            <option value="Mr">Mr</option>
+            <option value="Ms">Ms</option>
+        </select>
+
+        <input type="text" id="nameInput" placeholder="Name">
+
+        <!-- 🔥 SPONSOR -->
+        <select id="sponsor">
+            <option value="">Select Sponsor</option>
+            <option value="SABARI">Sabari</option>
+            <option value="GAYATHRI">Gayathri</option>
+            <option value="SOWMIYA">Sowmiya</option>
+            <option value="VINODHA">Vinodha</option>
+            <option value="SIVA SANGAR">Siva Sangar</option>
+            <option value="TAMILARASAN">Tamilarasan</option>
+            <option value="JERIN">Jerin</option>
+            <option value="JOTHI">Jothi</option>
+        </select>
+
+        <!-- 🔥 TYPE (ADD / INV) -->
+        <div>
+            <label><input type="radio" name="type" value="ADD" checked> ADD</label>
+            <label><input type="radio" name="type" value="INV"> INV</label>
+        </div>
+
+        <!-- DAY -->
+        <select id="day">
+            <option value="">Day</option>
+        </select>
+
+        <!-- MONTH -->
+        <select id="month">
+            <option value="">Month</option>
+            <option value="1">JANUARY</option>
+            <option value="2">FEBRUARY</option>
+            <option value="3">MARCH</option>
+            <option value="4">APRIL</option>
+            <option value="5">MAY</option>
+            <option value="6">JUNE</option>
+            <option value="7">JULY</option>
+            <option value="8">AUGUST</option>
+            <option value="9">SEPTEMBER</option>
+            <option value="10">OCTOBER</option>
+            <option value="11">NOVEMBER</option>
+            <option value="12">DECEMBER</option>
+        </select>
+
+        <br><br>
+
+        <button onclick="generate()">Generate</button>
+        <button onclick="downloadPDF()">Download PDF</button>
+    </div>
+
+    <!-- LETTER -->
+    <div class="container" id="letter">
+
+        <p class="center">INTERVIEW INFORMATION LETTER</p>
+
+        <p class="center">
+            To <span id="title"></span>. <span id="name"></span> <span id="respect"></span>...
+        </p>
+
+        <p style="margin-left: 50px;">
+            Subject : <b>Interview Invitation – <span class="code_color">CODE:
+                    <span id="code"></span></b></span>
+        </p>
+
+        <p style="margin-left: 50px;">
+            <b>Dear <span id="title2"></span>. <span id="name2"></span> <span id="respect2"></span>...</b>
+        </p>
+
+        <p>Subject: <b>Interview Details Regd.</b></p>
+
+        <p>We’re Happy To Inform You That Your Application Has Been Shortlisted!</p>
+
+        <p>You Are Invited For An Interview As Per The Details Below:</p>
+
+        <p class="bold">Interview Details:</p>
+
+        <ul>
+            <li>Date : <b><span id="date"></span></b></li>
+            <li>Time : <b>09:00AM</b></li>
+            <li>Venue : <b>KUMBAKONAM</b></li>
+        </ul>
+
+        <p class="bold">SMART GROUPS,</p>
+        <p>No:-27, 1st Floor, RMV Complex, North Mada Vilagam, Kumbakonam, Tamilnadu - 612001 (Near Sarangpani kovil)</p>
+
+        <p class="bold">Documents to Bring:</p>
+        <ul>
+            <li>Resume</li>
+            <li>Valid ID Proof (Aadhaar / Voter ID)</li>
+            <li>2 Passport-Size Photos</li>
+            <li>Documentation And Processing Fee ₹200/-</li>
+        </ul>
+
+        <p class="bold">Documentation Fee:</p>
+        <p>
+            A Nominal Fee Of ₹200/- Is Applicable For Interview Documentation And Processing. <br>
+            Kindly Bring The Exact Amount.
+        </p>
+
+        <p class="bold">⚠ Important Instructions:</p>
+        <ul>
+            <li><b>Dress Code :</b> Formal Attire Is Mandatory.</li>
+            <li><b>Punctuality :</b> Latecomers May Not Be Allowed Inside.</li>
+        </ul>
+
+        <p>For Any Assistance Contact Us At <b>9585404429.</b></p>
+
+        <p>We Look Forward To Meeting You And Wish You The Very Best...</p>
+
+        <br><br>
+
+        <p class="right">
+            Warm Regards,<br>
+            <b>Selection Team</b>
+        </p>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+body {
+  font-family: "Times New Roman", serif;
+  background: #eee;
+}
+
+.form-box,
+.container {
+  width: 750px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+}
+
+.center {
+  text-align: center;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.right {
+  text-align: right;
+}
+
+input,
+select {
+  padding: 8px;
+  margin: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.code_color {
+  color: white;
+  background-color: black;
+}
+
+sup {
+  font-size: 10px;
+  vertical-align: super;
+}
+
