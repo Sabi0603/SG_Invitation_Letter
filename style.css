@@ -1,16 +1,45 @@
 body {
   font-family: "Times New Roman", serif;
-  background: #eee;
+
+  /* 🔥 Soft professional background */
+  background: #f4f6f9;
+
+  margin: 0;
 }
 
-.form-box,
+/* 🔥 PDF CONTAINER (SAFE) */
 .container {
-  width: 750px;
+  max-width: 750px;
+  width: 95%;
   margin: 20px auto;
   background: #fff;
   padding: 20px;
+
+  border: 1px solid #ddd;
 }
 
+#letter {
+  margin: 0 auto;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* 🔥 FORM BOX (CLEAN CARD) */
+.form-box {
+  max-width: 650px;
+  width: 95%;
+  margin: 40px auto;
+  padding: 25px;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+  border: 1px solid #ddd;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* TEXT */
 .center {
   text-align: center;
   font-weight: bold;
@@ -24,18 +53,94 @@ body {
   text-align: right;
 }
 
-input,
-select {
-  padding: 8px;
-  margin: 5px;
+/* 🔥 TABLE */
+.form-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-button {
-  padding: 10px 15px;
-  margin-top: 10px;
+/* ROW SPACING */
+.form-table tr {
+  border-bottom: 1px solid #eee;
+}
+
+/* LABEL */
+.form-table td:first-child {
+  font-weight: 600;
+  color: #333;
+  width: 30%;
+  padding: 12px;
+}
+
+/* INPUT COLUMN */
+.form-table td:last-child {
+  width: 70%;
+  padding: 12px;
+}
+
+/* 🔥 INPUT STYLE */
+.form-table input,
+.form-table select {
+  width: 100%;
+  padding: 10px;
+
+  border-radius: 5px;
+  border: 1px solid #ccc;
+
+  font-size: 14px;
+  background: #fff;
+  color: #333;
+
+  transition: 0.2s;
+}
+
+/* FOCUS */
+.form-table input:focus,
+.form-table select:focus {
+  border-color: #2c3e50;
+  outline: none;
+}
+
+/* 🔥 RADIO */
+.form-table label {
+  margin-right: 15px;
+  font-size: 14px;
+}
+
+/* 🔥 DATE */
+.date-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* 🔥 BUTTON */
+.form-table button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+
+  background: #2c3e50;
+  color: white;
+
+  font-weight: 500;
   cursor: pointer;
+
+  transition: 0.2s;
 }
 
+/* HOVER */
+.form-table button:hover {
+  background: #1a252f;
+}
+
+/* BUTTON ALIGN */
+.form-table td[colspan="2"] {
+  text-align: center;
+  padding-top: 20px;
+}
+
+/* PDF CODE */
 .code_color {
   color: white;
   background-color: black;
@@ -46,3 +151,231 @@ sup {
   vertical-align: super;
 }
 
+/* 🔥 MOBILE */
+@media (max-width: 600px) {
+
+  .form-box,
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .form-table td {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .form-table td:first-child {
+    margin-bottom: 5px;
+  }
+
+  .form-table button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}body {
+  font-family: "Times New Roman", serif;
+  background: #f4f6f9;
+  margin: 0;
+}
+
+/* 🔥 FORM BOX */
+.form-box {
+  max-width: 650px;
+  width: 95%;
+  margin: 40px auto;
+  padding: 25px;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+  border: 1px solid #ddd;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* 🔥 TABLE */
+.form-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* ROW LINE */
+.form-table tr {
+  border-bottom: 1px solid #eee;
+}
+
+/* LABEL */
+.form-table td:first-child {
+  width: 30%;
+  padding: 12px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* INPUT COLUMN */
+.form-table td:last-child {
+  width: 70%;
+  padding: 12px;
+}
+
+/* 🔥 INPUT */
+.form-table input,
+.form-table select {
+  width: 100%;
+  padding: 10px;
+
+  border-radius: 5px;
+  border: 1px solid #ccc;
+
+  font-size: 14px;
+  background: #fff;
+  color: #333;
+
+  box-sizing: border-box;
+}
+
+/* FOCUS */
+.form-table input:focus,
+.form-table select:focus {
+  border-color: #2c3e50;
+  outline: none;
+}
+
+/* 🔥 RADIO ALIGN FIX */
+.form-table tr:nth-child(5) td:last-child {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* RADIO STYLE */
+.form-table label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.form-table input[type="radio"] {
+  margin: 0;
+}
+
+/* 🔥 DATE FIX */
+.date-row {
+  display: flex;
+  gap: 10px;
+}
+
+.date-row select {
+  flex: 1;
+}
+
+/* 🔥 BUTTON */
+.form-table button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+
+  background: #2c3e50;
+  color: white;
+
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.form-table button:hover {
+  background: #1a252f;
+}
+
+/* BUTTON ALIGN */
+.form-table td[colspan="2"] {
+  text-align: center;
+  padding-top: 20px;
+}
+
+/* 🔥 PDF CONTAINER */
+.container {
+  max-width: 750px;
+  width: 95%;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+
+  border: 1px solid #ddd;
+}
+
+/* TEXT */
+.center {
+  text-align: center;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.right {
+  text-align: right;
+}
+
+/* CODE STYLE */
+.code_color {
+  color: white;
+  background-color: black;
+}
+
+sup {
+  font-size: 10px;
+  vertical-align: super;
+}
+
+/* 🔥 MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+
+  .form-box,
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .form-table td {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .form-table td:first-child {
+    margin-bottom: 5px;
+  }
+
+  /* RADIO STACK */
+  .form-table tr:nth-child(5) td:last-child {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* DATE STACK */
+  .date-row {
+    flex-direction: column;
+  }
+
+  /* BUTTON FULL WIDTH */
+  .form-table button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/* 🔥 PDF FIX - REMOVE CENTER ALIGN */
+@media print {
+  #letter {
+    margin: 0 !important;
+    padding: 10px !important;
+  }
+}

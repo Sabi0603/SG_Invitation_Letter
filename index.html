@@ -3,68 +3,98 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interview Letter</title>
-
     <link rel="stylesheet" href="style.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
 
     <div class="form-box">
-        <select id="gender">
-            <option value="Mr">Mr</option>
-            <option value="Ms">Ms</option>
-        </select>
 
-        <input type="text" id="nameInput" placeholder="Name">
+        <table class="form-table">
 
-        <!-- 🔥 SPONSOR -->
-        <select id="sponsor">
-            <option value="">Select Sponsor</option>
-            <option value="SABARI">Sabari</option>
-            <option value="GAYATHRI">Gayathri</option>
-            <option value="SOWMIYA">Sowmiya</option>
-            <option value="VINODHA">Vinodha</option>
-            <option value="SIVA SANGAR">Siva Sangar</option>
-            <option value="TAMILARASAN">Tamilarasan</option>
-            <option value="JERIN">Jerin</option>
-            <option value="JOTHI">Jothi</option>
-        </select>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <select id="gender">
+                        <option value="Mr">Mr</option>
+                        <option value="Ms">Ms</option>
+                    </select>
+                </td>
+            </tr>
 
-        <!-- 🔥 TYPE (ADD / INV) -->
-        <div>
-            <label><input type="radio" name="type" value="ADD" checked> ADD</label>
-            <label><input type="radio" name="type" value="INV"> INV</label>
-        </div>
+            <tr>
+                <td>Initial</td>
+                <td><input type="text" id="initialInput" placeholder="Eg: M"></td>
+            </tr>
 
-        <!-- DAY -->
-        <select id="day">
-            <option value="">Day</option>
-        </select>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" id="nameInput" placeholder="Eg: Sabari"></td>
+            </tr>
 
-        <!-- MONTH -->
-        <select id="month">
-            <option value="">Month</option>
-            <option value="1">JANUARY</option>
-            <option value="2">FEBRUARY</option>
-            <option value="3">MARCH</option>
-            <option value="4">APRIL</option>
-            <option value="5">MAY</option>
-            <option value="6">JUNE</option>
-            <option value="7">JULY</option>
-            <option value="8">AUGUST</option>
-            <option value="9">SEPTEMBER</option>
-            <option value="10">OCTOBER</option>
-            <option value="11">NOVEMBER</option>
-            <option value="12">DECEMBER</option>
-        </select>
+            <tr>
+                <td>Sponsor</td>
+                <td>
+                    <select id="sponsor">
+                        <option value="">Select Sponsor</option>
+                        <option value="SABARI">Sabari</option>
+                        <option value="GAYATHRI">Gayathri</option>
+                        <option value="SOWMIYA">Sowmiya</option>
+                        <option value="VINODHA">Vinodha</option>
+                        <option value="SIVA SANGAR">Siva Sangar</option>
+                        <option value="TAMILARASAN">Tamilarasan</option>
+                        <option value="JERIN">Jerin</option>
+                        <option value="JOTHI">Jothi</option>
+                    </select>
+                </td>
+            </tr>
 
-        <br><br>
+            <tr>
+                <td>Type</td>
+                <td>
+                    <label><input type="radio" name="type" value="ADD" checked> ADD</label>
+                    <label><input type="radio" name="type" value="INV"> INV</label>
+                </td>
+            </tr>
 
-        <button onclick="generate()">Generate</button>
-        <button onclick="downloadPDF()">Download PDF</button>
+            <tr>
+                <td>Date</td>
+                <td class="date-row">
+                    <select id="day">
+                        <option value="">Day</option>
+                    </select>
+
+                    <select id="month">
+                        <option value="">Month</option>
+                        <option value="1">JANUARY</option>
+                        <option value="2">FEBRUARY</option>
+                        <option value="3">MARCH</option>
+                        <option value="4">APRIL</option>
+                        <option value="5">MAY</option>
+                        <option value="6">JUNE</option>
+                        <option value="7">JULY</option>
+                        <option value="8">AUGUST</option>
+                        <option value="9">SEPTEMBER</option>
+                        <option value="10">OCTOBER</option>
+                        <option value="11">NOVEMBER</option>
+                        <option value="12">DECEMBER</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                    <button onclick="generate()">Generate</button>
+                    <button onclick="downloadPDF()">Download PDF</button>
+                </td>
+            </tr>
+
+        </table>
+
     </div>
 
     <!-- LETTER -->
@@ -100,7 +130,8 @@
         </ul>
 
         <p class="bold">SMART GROUPS,</p>
-        <p>No:-27, 1st Floor, RMV Complex, North Mada Vilagam, Kumbakonam, Tamilnadu - 612001 (Near Sarangpani kovil)</p>
+        <p>No:-27, 1st Floor, RMV Complex, North Mada Vilagam, Kumbakonam, Tamilnadu - 612001 (Near Sarangpani kovil)
+        </p>
 
         <p class="bold">Documents to Bring:</p>
         <ul>

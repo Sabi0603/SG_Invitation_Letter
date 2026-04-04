@@ -1,7 +1,5 @@
-// 🔥 Change year here only
 const DEFAULT_YEAR = "2026";
 
-// 🔥 Auto fill days
 for (let i = 1; i <= 31; i++) {
     const option = document.createElement("option");
     option.value = i;
@@ -12,7 +10,8 @@ for (let i = 1; i <= 31; i++) {
 function generate() {
 
     const g = document.getElementById("gender").value;
-    const n = document.getElementById("nameInput").value.toUpperCase().trim();
+    const initial = document.getElementById("initialInput").value.toUpperCase().trim();
+    const name = document.getElementById("nameInput").value.toUpperCase().trim();
     const sponsor = document.getElementById("sponsor").value;
 
     const type = document.querySelector('input[name="type"]:checked');
@@ -20,8 +19,12 @@ function generate() {
     let day = parseInt(document.getElementById("day").value);
     let month = parseInt(document.getElementById("month").value);
 
-    // 🔥 Validation
-    if (!n) {
+    if (!initial) {
+        alert("Enter initial");
+        return;
+    }
+
+    if (!name) {
         alert("Enter name");
         return;
     }
@@ -44,18 +47,10 @@ function generate() {
     const typeValue = type.value;
     const respect = (g === "Mr") ? "SIR" : "MAM";
 
-    // 🔥 FIX: M.SABARI → SABARI
-    let cleanedName = n.replace(/\./g, " ").trim();
-    let words = cleanedName.split(" ");
-    let actualName = words[words.length - 1];
-
-    const firstLetterName = actualName.charAt(0);
+    const firstLetterName = name.charAt(0);
     const firstLetterSponsor = sponsor.charAt(0);
-
-    // 🔥 CODE (SP first + Name)
     const autoCode = firstLetterSponsor + firstLetterName;
 
-    // 🔥 Date format
     function getSuffix(d) {
         if (d >= 11 && d <= 13) return "TH";
         switch (d % 10) {
@@ -67,8 +62,8 @@ function generate() {
     }
 
     const months = [
-        "JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE",
-        "JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"
+        "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
+        "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
     ];
 
     const formattedDate =
@@ -76,12 +71,13 @@ function generate() {
         months[month - 1] + " " +
         DEFAULT_YEAR;
 
-    // 🔥 Assign
+    const fullName = name + "." + initial;
+
     document.getElementById("title").innerText = g;
     document.getElementById("title2").innerText = g;
 
-    document.getElementById("name").innerText = n;
-    document.getElementById("name2").innerText = n;
+    document.getElementById("name").innerText = fullName;
+    document.getElementById("name2").innerText = fullName;
 
     document.getElementById("respect").innerText = respect;
     document.getElementById("respect2").innerText = respect;
@@ -91,10 +87,45 @@ function generate() {
 
     document.getElementById("date").innerHTML = formattedDate;
 }
-
-// 🔥 PDF
 function downloadPDF() {
+
     const element = document.getElementById("letter");
 
-    html2pdf().from(element).save("Interview_Information_Letter.pdf");
+    // 🔥 Clone element (original disturb aagakoodathu)
+    const clone = element.cloneNode(true);
+
+    // 🔥 Wrapper create
+    const wrapper = document.createElement("div");
+    wrapper.style.padding = "0";
+    wrapper.style.margin = "0";
+    wrapper.style.background = "#fff";
+
+    // 🔥 Important fix
+    clone.style.margin = "0";
+    clone.style.padding = "10px";
+    clone.style.width = "210mm"; // A4 width fix
+
+    wrapper.appendChild(clone);
+
+    document.body.appendChild(wrapper);
+
+    const opt = {
+        margin: 0,
+        filename: 'Interview_' + Date.now() + '.pdf',
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: {
+            scale: 2,
+            scrollY: 0
+        },
+        jsPDF: {
+            unit: 'mm',
+            format: 'a4',
+            orientation: 'portrait'
+        }
+    };
+
+    html2pdf().set(opt).from(wrapper).save().then(() => {
+        // 🔥 Remove temp wrapper
+        document.body.removeChild(wrapper);
+    });
 }
