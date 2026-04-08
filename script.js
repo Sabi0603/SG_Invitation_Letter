@@ -18,12 +18,7 @@ function generate() {
 
     let day = parseInt(document.getElementById("day").value);
     let month = parseInt(document.getElementById("month").value);
-
-    if (!initial) {
-        alert("Enter initial");
-        return;
-    }
-
+    
     if (!name) {
         alert("Enter name");
         return;
